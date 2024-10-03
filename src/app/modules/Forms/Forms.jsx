@@ -1,0 +1,116 @@
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { useState } from "react"
+
+export const Forms = () => {
+
+    const [taskList, setTaskList] = useState([])
+    const [newTask, setNewTask] = useState({
+        task: "",
+        done: false
+    })
+
+    const handleChange = (e) => {
+        setNewTask({
+            ...newTask,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleCheckboxChange = (index) => {
+        const updatedTaskList = taskList.map((task, i) => {
+            if (i === index) {
+                return { ...task, done: !task.done }
+            }
+            return task
+        })
+        setTaskList(updatedTaskList)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setTaskList([
+            ...taskList, newTask
+        ])
+        setNewTask({
+            task: "",
+            done: false
+        })
+    }
+
+    return (
+        <div className="grid grid-cols-2 gap-4">
+            <Card>
+                <CardHeader className="flex flex-row items-center">
+                    <div className="grid gap-2">
+                        <CardTitle>Forms</CardTitle>
+                        <CardDescription>
+                            Basic Form Example.
+                        </CardDescription>
+                    </div>
+                </CardHeader>
+                <CardContent>
+
+                    <form className="space-y-4" onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="task" className="block text-sm font-medium text-gray-700">
+                                Task
+                            </label>
+                            <input
+                                type="text"
+                                id="task"
+                                name="task"
+                                value={newTask.task}
+                                onChange={handleChange}
+                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Insert new task"
+                            />
+                        </div>
+
+                        <div>
+                            <button
+                                type="submit"
+                                className="w-full px-4 py-2 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            >
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader className="flex flex-row items-center">
+                    <div className="grid gap-2">
+                        <CardTitle>TO DO</CardTitle>
+                        <CardDescription>
+                            Things to do.
+                        </CardDescription>
+                    </div>
+                </CardHeader>
+                <CardContent>
+                    {
+                        taskList.map(({task, done} , index) => (
+                            <div key={index} className="flex items-center space-x-3 p-2">
+                                <input
+                                    type="checkbox"
+                                    name="done"
+                                    checked={done}
+                                    onChange={() => handleCheckboxChange(index)}
+                                    className="form-checkbox h-5 w-5 text-indigo-600 rounded-md focus:ring-indigo-500"
+                                />
+                                <span className={`text-gray-700 ${done ? 'line-through' : ''}`}>{task}</span>
+                            </div>
+                        )
+                        )
+                    }
+
+                </CardContent>
+            </Card>
+        </div >
+    )
+}
