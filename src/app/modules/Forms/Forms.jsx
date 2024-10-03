@@ -14,12 +14,14 @@ export const Forms = () => {
         task: "",
         done: false
     })
+    const [error, setError] = useState("")
 
     const handleChange = (e) => {
         setNewTask({
             ...newTask,
             [e.target.name]: e.target.value
         })
+        setError("")
     }
 
     const handleCheckboxChange = (index) => {
@@ -34,6 +36,15 @@ export const Forms = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (newTask.task.trim().length === 0) {
+            setError("El campo no puede estar vacío")
+            return
+        }
+        if (newTask.task.trim().length < 10) {
+            setError("El campo debe tener al menos 10 caracteres")
+            return
+        }
+
         setTaskList([
             ...taskList, newTask
         ])
@@ -70,6 +81,7 @@ export const Forms = () => {
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Insert new task"
                             />
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
                         </div>
 
                         <div>
