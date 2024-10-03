@@ -5,11 +5,14 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
-export const Forms = () => {
+import { TaskContext } from "@/app/contexts/TaskContext"
 
-    const [taskList, setTaskList] = useState([])
+
+export const ContextForms = () => {
+
+    const { taskList, setTaskList } = useContext(TaskContext)
     const [newTask, setNewTask] = useState({
         task: "",
         done: false

@@ -44,12 +44,12 @@ export const Header = () => {
                 >
                     Forms
                 </Link>
-                <a
-                    href="#"
+                <Link
+                    to="/contextforms"
                     className="text-muted-foreground transition-colors hover:text-foreground"
                 >
-                    Products
-                </a>
+                    ContextForms
+                </Link>
                 <a
                     href="#"
                     className="text-muted-foreground transition-colors hover:text-foreground"
@@ -93,10 +93,10 @@ export const Header = () => {
                             Forms
                         </Link>
                         <a
-                            href="#"
+                            href="/contextforms"
                             className="text-muted-foreground hover:text-foreground"
                         >
-                            Products
+                            ContextForms
                         </a>
                         <a
                             href="#"
