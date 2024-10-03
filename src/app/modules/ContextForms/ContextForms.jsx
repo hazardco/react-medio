@@ -61,7 +61,7 @@ export const ContextForms = () => {
             <Card>
                 <CardHeader className="flex flex-row items-center">
                     <div className="grid gap-2">
-                        <CardTitle>Forms</CardTitle>
+                        <CardTitle>Context Forms</CardTitle>
                         <CardDescription>
                             Basic Form Example.
                         </CardDescription>

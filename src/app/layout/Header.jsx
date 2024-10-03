@@ -1,3 +1,4 @@
+import React from "react"
 import {
     CircleUser,
     Menu,
@@ -14,54 +15,98 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuIndicator,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+
+
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Link } from "react-router-dom"
 
-export const description =
-    "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image."
-
 export const Header = () => {
+
+    const menuItems = [
+        {
+            name: "Dashboard",
+            link: "/"
+        },
+        {
+            name: "Forms",
+            link: "/forms",
+            items: [
+                {
+                    name: "Basic Forms",
+                    link: "/forms/basic",
+                    description: "Formulario básico"
+                },
+                {
+                    name: "Context Forms",
+                    link: "/forms/contextforms",
+                    description: "Formulario con Context Provider"
+                },
+            ]
+        },
+    ]
+
     return (
         <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
             <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-                <a
-                    href="#"
+                <Link
+                    to="#"
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                 >
                     <img src="https://www.juntaex.es/o/juntaex-theme/images/logo.png" width={700}></img>
                     <span className="sr-only">Acme Inc</span>
-                </a>
-                <Link
-                    to="/"
-                    className="text-foreground transition-colors hover:text-foreground"
-                >
-                    Dashboard
                 </Link>
-                <Link
-                    to="/forms"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    Forms
-                </Link>
-                <Link
-                    to="/contextforms"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    ContextForms
-                </Link>
-                <a
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    Customers
-                </a>
-                <a
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    Analytics
-                </a>
+
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        {
+                            menuItems.map((item) => (
+                                <NavigationMenuItem key={item.link}>
+                                    {item.items ?
+                                        <>
+                                            <NavigationMenuTrigger
+                                                className={`${navigationMenuTriggerStyle()}`}>
+                                                {item.name}
+                                            </NavigationMenuTrigger>
+                                            <NavigationMenuContent>
+                                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                                                    {item.items.map((subitem) => (
+                                                        <ListItem
+                                                            title={subitem.name}
+                                                            to={subitem.link}
+                                                            key={subitem.link}
+                                                        >
+                                                            {subitem.description}
+                                                        </ListItem>
+                                                    ))}
+                                                </ul>
+                                            </NavigationMenuContent>
+                                        </>
+                                        :
+                                        <NavigationMenuLink
+                                            className={`${navigationMenuTriggerStyle()}`} asChild>
+                                            <Link to={item.link}>
+                                                {item.name}
+                                            </Link>
+                                        </NavigationMenuLink>
+                                    }
+                                </NavigationMenuItem>
+
+                            ))
+                        }
+                    </NavigationMenuList>
+                </NavigationMenu>
             </nav>
             <Sheet>
                 <SheetTrigger asChild>
@@ -87,29 +132,18 @@ export const Header = () => {
                             Dashboard
                         </Link>
                         <Link
-                            href="/forms"
+                            href="/forms/basic"
                             className="text-muted-foreground hover:text-foreground"
                         >
                             Forms
                         </Link>
-                        <a
-                            href="/contextforms"
+                        <Link
+                            to="/forms/contextforms"
                             className="text-muted-foreground hover:text-foreground"
                         >
                             ContextForms
-                        </a>
-                        <a
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Customers
-                        </a>
-                        <a
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Analytics
-                        </a>
+                        </Link>
+
                     </nav>
                 </SheetContent>
             </Sheet>
@@ -144,3 +178,27 @@ export const Header = () => {
         </header>
     )
 }
+
+const ListItem = React.forwardRef(({ className, title, to, children, ...props }, ref) => {
+    return (
+        <li>
+            <NavigationMenuLink asChild>
+                <Link
+                    ref={ref}
+                    to={to}
+                    className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ${className}`}
+                    {...props}
+                >
+                    <div className="text-sm font-medium leading-none">{title}</div>
+                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        {children}
+                    </p>
+                </Link>
+            </NavigationMenuLink>
+        </li>
+    )
+})
+
+ListItem.displayName = 'ListItem'
+
+export default ListItem

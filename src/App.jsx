@@ -16,14 +16,14 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/forms",
+        path: "/forms/basic",
         element: <Forms />,
       }
       ,
       {
-        path: "/contextforms",
+        path: "/forms/contextforms",
         element: <ContextForms />,
-      }
+      },
     ]
   },
 ])
