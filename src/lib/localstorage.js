@@ -5,3 +5,7 @@ export const saveToLocalStorage = (item, state) => {
 export const initialStateLocalStore = (item) => {
     return JSON.parse(localStorage.getItem(item))
 }
+
+export const removeStateLocalStore = (item) => {
+    localStorage.removeItem(item)
+}

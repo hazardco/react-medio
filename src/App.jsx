@@ -9,6 +9,8 @@ import { ReduxForms } from "./app/modules/ReduxForms/ReduxForms"
 
 import { Provider } from "react-redux"
 import { store } from "./app/redux/store"
+import { LoginForm } from "./app/modules/LoginForm/Login"
+import { PrivateRoute } from "./app/routes/PrivateRoute"
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Dashboard />,
+        element: <PrivateRoute element={<Dashboard />}/>,
       },
       {
         path: "/forms/basic",
@@ -31,9 +33,13 @@ const router = createBrowserRouter([
       {
         path: "/forms/reduxforms",
         element: <ReduxForms />,
-      }
-    ]
+      },
+    ],
   },
+  {
+    path: "/login",
+    element: <LoginForm />,
+  }
 ])
 
 function App() {

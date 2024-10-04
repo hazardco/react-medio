@@ -30,7 +30,8 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { removeStateLocalStore } from "@/lib/localstorage"
 
 export const Header = () => {
 
@@ -61,6 +62,13 @@ export const Header = () => {
             ]
         },
     ]
+
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        removeStateLocalStore("token")
+        navigate("/login")
+    }
 
     return (
         <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -176,7 +184,7 @@ export const Header = () => {
                         <DropdownMenuItem>Settings</DropdownMenuItem>
                         <DropdownMenuItem>Support</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Logout</DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleClick}>Logout</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
