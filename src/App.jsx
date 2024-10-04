@@ -5,6 +5,10 @@ import { Layout } from './app/layout/Layout'
 import { Forms } from './app/modules/Forms/Forms'
 import { ContextForms } from "./app/modules/ContextForms/ContextForms"
 import React from "react"
+import { ReduxForms } from "./app/modules/ReduxForms/ReduxForms"
+
+import { Provider } from "react-redux"
+import { store } from "./app/redux/store"
 
 const router = createBrowserRouter([
   {
@@ -24,6 +28,10 @@ const router = createBrowserRouter([
         path: "/forms/contextforms",
         element: <ContextForms />,
       },
+      {
+        path: "/forms/reduxforms",
+        element: <ReduxForms />,
+      }
     ]
   },
 ])
@@ -31,9 +39,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <React.StrictMode>
-      <TaskProvider>
-        <RouterProvider router={router} />
-      </TaskProvider>
+      <Provider store={store}>
+        <TaskProvider>
+          <RouterProvider router={router} />
+        </TaskProvider>
+      </Provider>
     </React.StrictMode>
   )
 }

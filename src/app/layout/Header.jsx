@@ -53,6 +53,11 @@ export const Header = () => {
                     link: "/forms/contextforms",
                     description: "Formulario con Context Provider"
                 },
+                {
+                    name: "Redux Forms",
+                    link: "/forms/reduxforms",
+                    description: "Formulario con REDUX"
+                },
             ]
         },
     ]
