@@ -1,7 +1,8 @@
+import { initialStateLocalStore } from "@/lib/localstorage"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    taskList: []
+    taskList: initialStateLocalStore("taskList") || []
 }
 
 const taskSlice = createSlice({
@@ -27,7 +28,7 @@ const taskSlice = createSlice({
                     return task
                 }
             })
-        }
+        },
     }
 })
 
