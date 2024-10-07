@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import { addTask, doneTask, deleteTask } from "../../redux/tasksSlice"
+import { toast } from "sonner"
 
 import {
     Card,
@@ -41,6 +42,7 @@ export const ReduxForms = () => {
 
     const handleClick = (index) => {
         dispatch(deleteTask(index))
+        toast("Task delete!")
     }
 
     const handleSubmit = (e) => {

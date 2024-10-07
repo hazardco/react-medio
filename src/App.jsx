@@ -11,6 +11,7 @@ import { Provider } from "react-redux"
 import { store } from "./app/redux/store"
 import { LoginForm } from "./app/modules/LoginForm/Login"
 import { PrivateRoute } from "./app/routes/PrivateRoute"
+import { Toaster } from "./components/ui/sonner"
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ function App() {
     <React.StrictMode>
       <Provider store={store}>
         <TaskProvider>
+          <Toaster position="top-right"/>
           <RouterProvider router={router} />
         </TaskProvider>
       </Provider>
