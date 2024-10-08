@@ -61,6 +61,10 @@ export const Header = () => {
                 },
             ]
         },
+        {
+            name: "Cats",
+            link: "/cats"
+        },
     ]
 
     const navigate = useNavigate()

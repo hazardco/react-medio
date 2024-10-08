@@ -12,6 +12,7 @@ import { store } from "./app/redux/store"
 import { LoginForm } from "./app/modules/LoginForm/Login"
 import { PrivateRoute } from "./app/routes/PrivateRoute"
 import { Toaster } from "./components/ui/sonner"
+import { Cats } from "./app/modules/Cats/Cats"
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/forms/reduxforms",
         element: <ReduxForms />,
+      },
+      {
+        path: "/cats",
+        element: <Cats />,
       },
     ],
   },
