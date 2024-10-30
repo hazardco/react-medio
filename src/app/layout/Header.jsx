@@ -77,6 +77,11 @@ export const Header = () => {
             name: "Tanstack",
             link: "/tanstack"
         },
+        {
+            name: "DataTable",
+            link: "/table"
+        },
+
     ]
 
     const navigate = useNavigate()

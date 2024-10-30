@@ -24,6 +24,7 @@ import {
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TanstackUsuarioDetalle } from "./app/modules/Tanstack/components/TanstackUsuarioDetalle"
+import { TableIndex } from "./app/modules/Table/pages/TableIndex"
 
 
 const queryClient = new QueryClient()
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "/tanstack/:id",
         element: <TanstackUsuarioDetalle />,
+      },
+      {
+        path: "/table",
+        element: <TableIndex />,
       },
     ],
   },
