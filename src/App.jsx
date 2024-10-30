@@ -11,8 +11,10 @@ import { Provider } from "react-redux"
 import { store } from "./app/redux/store"
 import { LoginForm } from "./app/modules/LoginForm/Login"
 import { PrivateRoute } from "./app/routes/PrivateRoute"
-import { Toaster } from "./components/ui/sonner"
 import { Cats } from "./app/modules/Cats/Cats"
+import { ShadcnIndex } from "./app/modules/ShadcnDemo/pages/ShadcnIndex"
+import { Toaster } from "sonner"
+import { Toaster as SimpleToaster } from "@/components/ui/toaster"
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <PrivateRoute element={<Dashboard />}/>,
+        element: <PrivateRoute element={<Dashboard />} />,
       },
       {
         path: "/forms/basic",
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
         path: "/cats",
         element: <Cats />,
       },
+      {
+        path: "/shadcn",
+        element: <ShadcnIndex />,
+      },
     ],
   },
   {
@@ -52,8 +58,9 @@ function App() {
   return (
     <React.StrictMode>
       <Provider store={store}>
+        <Toaster position="top-center" richColors />
         <TaskProvider>
-          <Toaster position="top-right"/>
+          <SimpleToaster />
           <RouterProvider router={router} />
         </TaskProvider>
       </Provider>
