@@ -15,6 +15,7 @@ import { Cats } from "./app/modules/Cats/Cats"
 import { ShadcnIndex } from "./app/modules/ShadcnDemo/pages/ShadcnIndex"
 import { Toaster } from "sonner"
 import { Toaster as SimpleToaster } from "@/components/ui/toaster"
+import { FormIndex } from "./app/modules/Forms/pages/FormIndex"
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/shadcn",
         element: <ShadcnIndex />,
+      },
+      {
+        path: "/formularios",
+        element: <FormIndex />,
       },
     ],
   },

@@ -69,6 +69,10 @@ export const Header = () => {
             name: "ShadcnDemo",
             link: "/shadcn"
         },
+        {
+            name: "Formularios",
+            link: "/formularios"
+        },
     ]
 
     const navigate = useNavigate()
