@@ -16,6 +16,17 @@ import { ShadcnIndex } from "./app/modules/ShadcnDemo/pages/ShadcnIndex"
 import { Toaster } from "sonner"
 import { Toaster as SimpleToaster } from "@/components/ui/toaster"
 import { FormIndex } from "./app/modules/Forms/pages/FormIndex"
+import { TanstackIndex } from "./app/modules/Tanstack/pages/TanstackIndex"
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { TanstackUsuarioDetalle } from "./app/modules/Tanstack/components/TanstackUsuarioDetalle"
+
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -51,6 +62,14 @@ const router = createBrowserRouter([
         path: "/formularios",
         element: <FormIndex />,
       },
+      {
+        path: "/tanstack",
+        element: <TanstackIndex />,
+      },
+      {
+        path: "/tanstack/:id",
+        element: <TanstackUsuarioDetalle />,
+      },
     ],
   },
   {
@@ -62,13 +81,16 @@ const router = createBrowserRouter([
 function App() {
   return (
     <React.StrictMode>
-      <Provider store={store}>
-        <Toaster position="top-center" richColors />
-        <TaskProvider>
-          <SimpleToaster />
-          <RouterProvider router={router} />
-        </TaskProvider>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <Toaster position="top-center" richColors />
+          <TaskProvider>
+            <SimpleToaster />
+            <RouterProvider router={router} />
+          </TaskProvider>
+        </Provider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </React.StrictMode>
   )
 }

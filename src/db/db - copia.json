@@ -1,0 +1,54 @@
+{
+  "usuarios": [
+    {
+      "nombreCompleto": "Carlos García Pérez",
+      "username": "cgarcia",
+      "email": "cgarcia@example.com"
+    },
+    {
+      "nombreCompleto": "Laura Martínez Rodríguez",
+      "username": "lmartinez",
+      "email": "lmartinez@example.com"
+    },
+    {
+      "nombreCompleto": "Javier López Sánchez",
+      "username": "jlopez",
+      "email": "jlopez@example.com"
+    },
+    {
+      "nombreCompleto": "Ana Hernández Gómez",
+      "username": "ahernandez",
+      "email": "ahernandez@example.com"
+    },
+    {
+      "nombreCompleto": "Miguel Fernández Díaz",
+      "username": "mfernandez",
+      "email": "mfernandez@example.com"
+    },
+    {
+      "nombreCompleto": "Lucía Ruiz Muñoz",
+      "username": "lruiz",
+      "email": "lruiz@example.com"
+    },
+    {
+      "nombreCompleto": "Pedro Moreno Jiménez",
+      "username": "pmoreno",
+      "email": "pmoreno@example.com"
+    },
+    {
+      "nombreCompleto": "Sofía Romero Ortiz",
+      "username": "sromero",
+      "email": "sromero@example.com"
+    },
+    {
+      "nombreCompleto": "Alberto Navarro Gil",
+      "username": "anavarro",
+      "email": "anavarro@example.com"
+    },
+    {
+      "nombreCompleto": "Elena Castro López",
+      "username": "ecastro",
+      "email": "ecastro@example.com"
+    }
+  ]
+}

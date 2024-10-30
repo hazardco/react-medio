@@ -73,6 +73,10 @@ export const Header = () => {
             name: "Formularios",
             link: "/formularios"
         },
+        {
+            name: "Tanstack",
+            link: "/tanstack"
+        },
     ]
 
     const navigate = useNavigate()

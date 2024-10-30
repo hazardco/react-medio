@@ -1,0 +1,64 @@
+{
+  "usuarios": [
+    {
+      "nombreCompleto": "Carlos García Pérez",
+      "username": "cgarcia",
+      "email": "cgarcia@example.com",
+      "id": "dd4d"
+    },
+    {
+      "nombreCompleto": "Laura Martínez Rodríguez",
+      "username": "lmartinez",
+      "email": "lmartinez@example.com",
+      "id": "0f84"
+    },
+    {
+      "nombreCompleto": "Javier López Sánchez",
+      "username": "jlopez",
+      "email": "jlopez@example.com",
+      "id": "17db"
+    },
+    {
+      "nombreCompleto": "Ana Hernández Gómez",
+      "username": "ahernandez",
+      "email": "ahernandez@example.com",
+      "id": "ed20"
+    },
+    {
+      "nombreCompleto": "Miguel Fernández Díaz",
+      "username": "mfernandez",
+      "email": "mfernandez@example.com",
+      "id": "a4c2"
+    },
+    {
+      "nombreCompleto": "Lucía Ruiz Muñoz",
+      "username": "lruiz",
+      "email": "lruiz@example.com",
+      "id": "5543"
+    },
+    {
+      "nombreCompleto": "Pedro Moreno Jiménez",
+      "username": "pmoreno",
+      "email": "pmoreno@example.com",
+      "id": "4829"
+    },
+    {
+      "nombreCompleto": "Sofía Romero Ortiz",
+      "username": "sromero",
+      "email": "sromero@example.com",
+      "id": "b95b"
+    },
+    {
+      "nombreCompleto": "Alberto Navarro Gil",
+      "username": "anavarro",
+      "email": "anavarro@example.com",
+      "id": "1c74"
+    },
+    {
+      "nombreCompleto": "Elena Castro López",
+      "username": "ecastro",
+      "email": "ecastro@example.com",
+      "id": "2a55"
+    }
+  ]
+}
